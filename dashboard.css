@@ -4,8 +4,7 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    height: 100vh;
-    background-color: #f4f4f9;
+    height: fit-content;
     flex-direction: column; /* Adjust for mobile screens */
 }
 
