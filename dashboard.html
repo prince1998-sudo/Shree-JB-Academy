@@ -29,6 +29,7 @@
                     <li><a href="#settings"><i class="fas fa-cog"></i> Settings</a></li>
                 </ul>
             </nav>
+            <button onclick="logout()">Log Out</button> <!-- Added Log Out button -->
         </aside>
 
         <!-- Main Dashboard Area -->
@@ -226,9 +227,13 @@
             document.getElementById('profileEdit').style.display = 'none';
             document.getElementById('profileView').style.display = 'block';
         }
+
+        // Log out functionality
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = 'login.html';  // Redirect to login page
+        }
+        
     </script>
 </body>
 </html>
-
-
-
