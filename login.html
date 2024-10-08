@@ -50,23 +50,22 @@
         });
 
         // Handle Login
-        function handleLogin(event) {
-            event.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+function handleLogin(event) {
+    event.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
-            // Retrieve user data from localStorage
-            const user = JSON.parse(localStorage.getItem(email));
-            const user = JSON.parse(localStorage.getItem(name));
-            const user = JSON.parse(localStorage.getItem(class));
+    // Retrieve user data from localStorage
+    const user = JSON.parse(localStorage.getItem(email));  // Correct usage
 
-            if (user && user.password === password) {
-                // Redirect to dashboard
-                window.location.href = 'dashboard.html';
-            } else {
-                alert('Invalid email or password. Please try again.');
-            }
-        }
+    if (user && user.password === password) {
+        // Redirect to dashboard
+        window.location.href = 'dashboard.html';
+    } else {
+        alert('Invalid email or password. Please try again.');
+    }
+}
+
     </script>
 </body>
 </html>
