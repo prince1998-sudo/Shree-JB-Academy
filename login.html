@@ -3,50 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Student Login</title>
     <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="login-container">
-        <img src="school logo.png" alt="School Logo" class="logo">
-        <h2>Login</h2>
+        <header>
+            <img src="school logo.png" alt="School Logo" class="logo">
+            <h1>Student Login</h1>
+        </header>
+
         <form id="loginForm" onsubmit="return handleLogin(event)">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
 
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required>
+                <i class="fa fa-eye" id="togglePassword"></i>
+            </div>
 
             <button type="submit">Login</button>
+
+            <div class="options">
+                <a href="forgotpassword.html">Forgot Password?</a>
+                <a href="signup.html">Create an Account</a>
+            </div>
         </form>
-        <div class="options">
-            <a href="signup.html">Don't have an account? Sign up here.</a>
-        </div>
+
+        <footer>
+            <p>&copy; 2024 shree JB Academy. All rights reserved.</p>
+            <a href="privary-policy.html">Privacy Policy</a>
+        </footer>
     </div>
 
     <script>
+        // Toggle Password Visibility
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function () {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        // Handle Login
         function handleLogin(event) {
             event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
 
-            const enteredEmail = document.getElementById('email').value;
-            const enteredPassword = document.getElementById('password').value;
+            // Retrieve user data from localStorage
+            const user = JSON.parse(localStorage.getItem(email));
+            const user = JSON.parse(localStorage.getItem(name));
+            const user = JSON.parse(localStorage.getItem(class));
 
-            // Retrieve user credentials from localStorage
-            const savedUser = JSON.parse(localStorage.getItem('currentUser'));
-
-            // Check if the user exists and validate the credentials
-            if (savedUser) {
-                if (savedUser.email === enteredEmail && savedUser.password === enteredPassword) {
-                    // Successful login
-                    alert('Login successful!');
-                    window.location.href = 'dashboard.html';
-                } else {
-                    // Invalid credentials
-                    alert('Invalid email or password.');
-                }
+            if (user && user.password === password) {
+                // Redirect to dashboard
+                window.location.href = 'dashboard.html';
             } else {
-                // No user found
-                alert('No account found with the entered email.');
+                alert('Invalid email or password. Please try again.');
             }
         }
     </script>
