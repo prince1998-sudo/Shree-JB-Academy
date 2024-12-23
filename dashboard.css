@@ -1,27 +1,23 @@
-hatGPT
-
-You said:
-
-    table th, table td {
-        font-size: 14px;
-        padding: 8px;
-    }
-
-    button {
-        width: 100%; /* Make the button full-width for mobile */
-        padding: 12px;
-        font-size: 16px;
-    }
+/* General Styles */
+table th, table td {
+    font-size: 14px;
+    padding: 8px;
 }
 
-/* Ultra Small Devices (Very small mobile screens) */
-@media (max-width: 400px) {
+button {
+    width: 100%; /* Full-width for mobile */
+    padding: 12px;
+    font-size: 16px;
+}
+
+/* Small Devices (Mobile Phones) */
+@media (max-width: 768px) {
     .dashboard-header h1 {
-        font-size: 20px;
+        font-size: 24px; /* Adjust header size */
     }
 
     h2 {
-        font-size: 16px;
+        font-size: 18px; /* Adjust subheader size */
     }
 
     button {
@@ -30,6 +26,66 @@ You said:
     }
 
     table th, table td {
-        font-size: 12px; /* Smaller text for tiny screens */
+        font-size: 12px; /* Smaller text for small screens */
+    }
+}
+
+/* Ultra Small Devices (Very small mobile screens) */
+@media (max-width: 400px) {
+    .dashboard-header h1 {
+        font-size: 20px; /* Reduce header size */
+    }
+
+    h2 {
+        font-size: 16px; /* Further reduce subheader size */
+    }
+
+    button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    table th, table td {
+        font-size: 11px; /* Further reduce table text size */
+    }
+}
+
+/* Medium Devices (Tablets) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .dashboard-header h1 {
+        font-size: 28px; /* Slightly larger for tablets */
+    }
+
+    h2 {
+        font-size: 20px; /* Adjust subheader for tablets */
+    }
+
+    button {
+        padding: 14px;
+        font-size: 15px;
+    }
+
+    table th, table td {
+        font-size: 13px;
+    }
+}
+
+/* Large Devices (Desktops) */
+@media (min-width: 1025px) {
+    .dashboard-header h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    button {
+        padding: 16px;
+        font-size: 16px;
+    }
+
+    table th, table td {
+        font-size: 14px;
     }
 }
