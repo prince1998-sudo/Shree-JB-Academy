@@ -4,14 +4,17 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column; /* Adjust for mobile screens */
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .dashboard-container {
     display: flex;
-    width: 100%;
+    flex: 1;
+    flex-direction: row;
     height: 100%;
-    flex-direction: row; /* Default for larger screens */
 }
 
 /* Sidebar */
@@ -21,13 +24,16 @@ body {
     color: white;
     padding: 20px;
     flex-shrink: 0;
+    display: flex;
     flex-direction: column;
-    height: fit-content;
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar img.school-logo {
     width: 100px;
     margin-bottom: 20px;
+    align-self: center;
 }
 
 .sidebar h2 {
@@ -39,6 +45,8 @@ body {
 .sidebar ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    flex-grow: 1;
 }
 
 .sidebar ul li {
@@ -53,6 +61,12 @@ body {
 
 .sidebar ul li a:hover {
     text-decoration: underline;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    font-size: 14px;
+    color: #000;
 }
 
 /* Main Content Area */
@@ -94,7 +108,8 @@ table {
     margin-top: 10px;
 }
 
-table th, table td {
+table th,
+table td {
     border: 1px solid #ccc;
     padding: 10px;
     text-align: left;
@@ -171,19 +186,20 @@ button:hover {
         font-size: 18px;
     }
 
-    table th, table td {
+    table th,
+    table td {
         font-size: 14px;
         padding: 8px;
     }
 
     button {
-        width: 100%; /* Make the button full-width for mobile */
+        width: 100%; /* Full-width button for mobile */
         padding: 12px;
         font-size: 16px;
     }
 }
 
-/* Ultra Small Devices (Very small mobile screens) */
+/* Ultra Small Devices (Very Small Mobiles) */
 @media (max-width: 400px) {
     .dashboard-header h1 {
         font-size: 20px;
@@ -198,9 +214,8 @@ button:hover {
         font-size: 14px;
     }
 
-    table th, table td {
+    table th,
+    table td {
         font-size: 12px; /* Smaller text for tiny screens */
     }
 }
-
-
